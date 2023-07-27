@@ -13,4 +13,3 @@ Made using:
 - sqlalchemy-utils
 - gunicorn
 
-
