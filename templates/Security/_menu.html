@@ -1,0 +1,26 @@
+{% if security.registerable or security.recoverable or security.confirmable or security.unified_signin or
+security.two_factor or security.webauthn %}
+<hr>
+{% if request.path == '/login' %}
+<h2 class="text-center font-bold text-lg underline underline-offset-4 my-6 md:mt-12">{{ _fsdomain('Don\'t have an
+    account! Register here.') }}</h2>
+<div class="text-center">
+    <div>
+        <a class="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+            href="{{ url_for_security('register') }}{%- if 'next' in request.args -%}?next={{ request.args.next|urlencode }}{%- endif -%}">{{
+            _fsdomain('Register') }}</a>
+    </div>
+</div>
+{% else %}
+<h2 class="text-center font-bold text-lg underline underline-offset-4 my-6 md:mt-12">{{ _fsdomain('Already have an
+    account! Login here.') }}</h2>
+<div class="text-center">
+    <div>
+        <a class="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+            href="{{ url_for_security('login') }}{%- if 'next' in request.args -%}?next={{ request.args.next|urlencode }}{%- endif -%}">{{
+            _fsdomain('Login') }}</a>
+    </div>
+</div>
+{% endif %}
+{% endif %}
+{% include "footer.html" %}

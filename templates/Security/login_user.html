@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Login</title>
+</head>
+
+<body class="grid justify-center item-center mt-20 md:mt-20 text-gray-700">
+    {% extends "security/base.html" %}
+    {% from "security/_macros.html" import render_field_with_errors, render_field, render_field_errors,
+    render_form_errors
+    %}
+
+    {% block content %}
+    {% include "security/_messages.html" %}
+    <h1 class="font-medium text-2xl mb-4 md:mb-6 underline underline-offset-8">{{ _fsdomain('Please Login to
+        continue...') }}</h1>
+    <form action="{{ url_for_security('login') }}" method="POST" name="login_user_form">
+        {{ login_user_form.hidden_tag() }}
+        {{ render_form_errors(login_user_form) }}
+        {% if "email" in identity_attributes %}
+        <div class="fs-gap">
+            {{ render_field_with_errors(login_user_form.email, placeholder="Click here to enter email",
+            autocomplete="email") }}
+        </div>
+        {% endif %}
+        <div class="fs-gap">
+            {{ render_field_with_errors(login_user_form.password, placeholder=" Click here to enter password",
+            autocomplete="current-password") }}
+        </div>
+        <div>
+            {{ render_field_with_errors(login_user_form.remember) }}
+        </div>
+        {{ render_field_errors(login_user_form.csrf_token) }}
+        <div class="text-center mt-5">
+            <button
+                class="py-1.5 px-4 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+                {{ render_field(login_user_form.submit) }}
+            </button>
+        </div>
+    </form>
+    {% include "security/_menu.html" %}
+    {% endblock %}
+</body>
+
+</html>

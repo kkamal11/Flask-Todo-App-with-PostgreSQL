@@ -1,0 +1,8 @@
+Flask 
+psycopg2-binary
+flask-sqlalchemy
+flask-security-too
+Flask-migrate
+bcrypt
+sqlalchemy-utils
+gunicorn
