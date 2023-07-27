@@ -13,3 +13,7 @@ Made using:
 - sqlalchemy-utils
 - gunicorn
 
+
+## Database
+- PostgreSQL in production (set the environment variable ENV=production)
+- SQLite3 in local development 
