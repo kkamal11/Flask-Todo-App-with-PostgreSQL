@@ -1,5 +1,5 @@
 # Flask-Todo-App-with-PostgreSQL
-A Flask todo app with PostgreSQL made to test PostgreSQL integration in the backend.
+A Flask todo app with PostgreSQL was made to test PostgreSQL integration in the backend.
 
 
 Made using:
@@ -16,4 +16,12 @@ Made using:
 
 ## Database
 - PostgreSQL in production (set the environment variable ENV=production)
-- SQLite3 in local development 
+- SQLite3 in local development
+
+
+## To Run the application
+- Just type `run.cmd` in the command prompt if using Windows
+    - _It will create the virtual environment -> activate it, install the dependencies and run the server for you._
+- Just run the bash script by typing `source run.sh` in the Linux terminal or WSL(if running on Windows)
+    - _It will create the virtual environment -> activate it, install the dependencies and run the server for you._
+  
